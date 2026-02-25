@@ -1,0 +1,56 @@
+import java.util.Scanner;//1082(division 2):ques1
+public class ParkourDesign {
+		
+	public static void main(String[] args) {
+	    
+	    Scanner sc=new Scanner(System.in);
+	    int x=sc.nextInt();
+	    int y=sc.nextInt();
+	    int i=0,j=0;
+	    
+	    if(y<0){
+	        while(j!=y){
+	            i+=4;
+	            j-=1;
+}
+if(i>x){
+    System.out.println("No");
+}
+else{
+    if((x-i)%3==0 || (x-i)%6==0){
+    System.out.println("YES");
+}
+else{
+    System.out.println("No");
+}
+	    }
+	    }
+	    
+	    else if(y>0){
+	        while(j!=y){
+	            i+=2;
+	            j+=1;
+	        }
+	         if(i>x){
+	            System.out.println("NO");
+	            }
+	            else{
+	                if((x-i)%3==0 || (x-i)%6==0){
+	                    System.out.println("YES");
+	                }
+	                else{
+	                    System.out.println("NO");
+	                }
+	            }
+	    }
+	    
+	    else if(y==0){
+	                if(x%3==0 || x%6==0){
+	                    System.out.println("YES");
+	                }
+	                else{
+	                    System.out.println("NO");
+	                }
+	    }
+	}
+}
