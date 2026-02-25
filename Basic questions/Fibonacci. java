@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Main{
+    public static void Fibonacci(String[] args){
+        Scanner sc=new Scanner (System.in);
+        System.out.println("Enter a number");
+        int n=sc.nextInt();
+        int f=0,l=1,sum=0;
+        System.out.print(f+", ");
+        System.out.print(l+", ");
+        for(int i=2;i<n;i++){
+            sum=f+l;
+            System.out.print(sum+", ");
+            f=l;
+            l=sum;
+        }}
+}
