@@ -1,7 +1,7 @@
 //Union of two sorted arrays
 import java.util.*;
 
-class Solution {
+class ArrayUnion {
     public int[] unionArray(int[] nums1, int[] nums2) {
 
         int i = 0, j = 0;
