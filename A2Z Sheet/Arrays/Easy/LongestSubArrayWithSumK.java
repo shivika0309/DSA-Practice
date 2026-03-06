@@ -46,6 +46,7 @@ class LongestSubArrayWithSumK{
      return max;*/
 
 //optimal approach for all positive
+     //sliding window
 
 int left = 0;
 int sum = 0;
