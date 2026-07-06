@@ -1,4 +1,4 @@
-class Solution {
+class 4Sum {
     public List<List<Integer>> fourSum(int[] nums, int target) {
 
         /*
