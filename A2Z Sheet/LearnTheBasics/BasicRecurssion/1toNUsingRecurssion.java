@@ -1,4 +1,4 @@
-class Solution {
+class 1toNUsingRecurssion {
     public void printNumbers(int n) {
         // Your code goes here
         if(n<1)
