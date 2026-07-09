@@ -1,14 +1,11 @@
 class SearchInsertPosition {
-    public int upperBound(int[] nums, int x) {
-        int low=0;
-        int high=nums.length-1;
-        int ans=nums.length;
+    public int searchInsert(int[] nums, int target) {
+        int low=0,high=nums.length-1;
+        int ans=nums.length; 
         while(low<=high){
             int mid=low+(high-low)/2;
-            if(nums[mid]==x){
-                low=mid+1;
-            }
-            else if(nums[mid]>x){
+           
+            if(nums[mid]>=target){
                 ans=mid;
                 high=mid-1;
             }
