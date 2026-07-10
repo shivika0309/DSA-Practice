@@ -35,7 +35,7 @@ O(log n)
 Space Complexity:
 O(1)
 */
-class Solution {
+class SearchInRotatedSortedArray1 {
     public int search(int[] nums, int target) {
         // int left=0;
         // int right=nums.length-1;
