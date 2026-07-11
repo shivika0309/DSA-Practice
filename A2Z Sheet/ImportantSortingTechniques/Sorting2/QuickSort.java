@@ -24,7 +24,7 @@ Space Complexity:
 Average : O(log n) (recursion stack)
 Worst   : O(n)
 */
-class Solution {
+class QuickSort {
     public int[] quickSort(int[] nums) {
         quickSort(nums,0,nums.length-1);
         return nums;
@@ -36,12 +36,12 @@ class Solution {
         
         int i=low;
         int j=high;
-        int pivot=nums[high];
+        int pivot=nums[low];
         while(i<j){
         
-        while(i<=high && nums[i]<pivot)
+        while(i<high && nums[i]<=pivot)
         i++;
-        while(j>low && nums[j]>=pivot)
+        while(j>low && nums[j]>pivot)
         j--;
         if(i<j){
             int temp=nums[i];
@@ -49,11 +49,11 @@ class Solution {
             nums[j]=temp;
         }
         }
-        int temp=nums[i];
-        nums[i]=nums[high];
-        nums[high]=temp;
+        int temp=nums[j];
+        nums[j]=nums[low];
+        nums[low]=temp;
        
-        quickSort(nums,low,i-1);
-        quickSort(nums,i+1,high);
+        quickSort(nums,low,j-1);
+        quickSort(nums,j+1,high);
     }
 }
