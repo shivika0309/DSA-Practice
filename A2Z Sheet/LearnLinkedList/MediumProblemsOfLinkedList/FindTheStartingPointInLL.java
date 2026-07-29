@@ -1,48 +1,34 @@
 /*
 Algorithm:
-1. Use Floyd's Cycle Detection Algorithm to find the meeting point of the slow and fast pointers.
-2. If they never meet, there is no cycle, so return null.
-3. Once they meet, move one pointer back to the head while keeping the other at the meeting point.
+1. Use Floyd's Cycle Detection Algorithm to find the meeting point of slow and fast.
+2. If they never meet, return null (no cycle).
+3. Move the slow pointer back to the head while keeping the fast pointer at the meeting point.
 4. Move both pointers one step at a time.
-5. The node where they meet again is the starting node of the cycle.
+5. The node where they meet is the starting node of the cycle.
 
 Intuition:
+- Suppose the distance from the head to the start of the cycle is L.
+- By the time slow reaches the start of the cycle, fast has also reached there and has
+  already traveled an extra L nodes inside the cycle.
 - Let:
-    x = distance from head to the start of the cycle
-    y = distance from the cycle start to the meeting point
-    L = length of the cycle
-
-- When slow and fast meet:
-    Slow has traveled: x + y
-    Fast has traveled: 2(x + y)
-
-- Since fast has traveled exactly one or more extra full cycles:
-    2(x + y) = x + y + kL
-    => x + y = kL
-    => x = kL - y
-
-- This means:
-    • One pointer at the head is x steps away from the cycle start.
-    • The other pointer at the meeting point is also x steps away from the cycle start
-      (it first covers the remaining L - y distance, then completes (k - 1) full cycles).
-
-- Therefore, moving both pointers one step at a time makes them meet exactly at the
-  starting node of the cycle.
+    C = length of the cycle
+    D = distance from the start of the cycle to the meeting point.
+- The extra L distance covered by fast is made up of:
+      one full cycle + D
+  Hence,
+      C = L + D
+- When slow and fast meet, the meeting point is D nodes ahead of the cycle's start.
+  So, the remaining distance from the meeting point back to the cycle's start is:
+      C - D = L
+- Therefore:
+    • Slow at the head is L nodes away from the cycle's start.
+    • Fast at the meeting point is also L nodes away from the cycle's start.
+- Moving both pointers one step at a time makes them meet exactly at the starting
+  node of the cycle.
 
 Time Complexity: O(n)
 Space Complexity: O(1)
 */
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
- * }
- */
 public class FindTheStartingPointInLL{
     public ListNode detectCycle(ListNode head) {
              ListNode slow=head;
