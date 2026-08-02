@@ -38,21 +38,33 @@ class ListNode {
 }
  */
 
-class RemoveDuplicatesFromSortedDLL {
+class Solution {
     public ListNode removeDuplicates(ListNode head) {
-        ListNode curr=head;
-        ListNode next=head;
-        while(next!=null){
-            next=curr.next;
-            while(next!=null && curr.val==next.val){
-                next=next.next;
+
+        if (head == null) return null;
+
+        ListNode curr = head;
+
+        while (curr != null) {
+
+            ListNode next = curr.next;
+
+            // Skip all duplicate nodes
+            while (next != null && curr.val == next.val) {
+                next = next.next;
             }
-            curr.next=next;
-            if(next!=null){
-            next.prev=curr;
+
+            // Connect current node to the next distinct node
+            curr.next = next;
+
+            if (next != null) {
+                next.prev = curr;
             }
-            curr=next;
+
+            // Move to the next distinct node
+            curr = next;
         }
+
         return head;
     }
 }
